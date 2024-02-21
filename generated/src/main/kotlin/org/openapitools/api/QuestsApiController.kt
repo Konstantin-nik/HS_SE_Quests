@@ -78,7 +78,7 @@ class QuestsApiController() {
         value = ["/quests/{questId}/details"],
         produces = ["application/json"]
     )
-    fun questsQuestIdDetailsGet(@Parameter(description = "ID of the Quest to retrieve details for", required = true) @PathVariable("questId") questId: kotlin.Int): ResponseEntity<QuestDetails> {
+    fun questsQuestIdDetailsGet(@Parameter(description = "ID of the Quest to retrieve details for", required = true) @PathVariable("questId") questId: kotlin.String): ResponseEntity<QuestDetails> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

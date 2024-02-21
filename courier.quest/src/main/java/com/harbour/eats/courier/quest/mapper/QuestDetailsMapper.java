@@ -14,6 +14,7 @@ public class QuestDetailsMapper {
     questDetailsVM.setHoursDration(questDetails.getHoursDration());
     questDetailsVM.setRewardAmount(questDetails.getRewardAmount());
     questDetailsVM.setOrderThreshold(questDetails.getOrderThreshold());
+    questDetailsVM.setActiveStatus(questDetails.getActiveStatus());
 
     return questDetailsVM;
   }

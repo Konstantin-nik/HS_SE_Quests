@@ -13,6 +13,7 @@ public class QuestDetailsVM {
   private Integer hoursDration;
   private Integer orderThreshold;
   private Integer rewardAmount;
+  private Boolean activeStatus;
 
   public QuestDetailsVM() {
 

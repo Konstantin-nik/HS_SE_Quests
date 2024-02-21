@@ -77,6 +77,8 @@ components:
           type: integer
         rewardAmount:
           type: integer
+        activeStatus:
+          type: boolean
     ActiveQuestsList:
       type: array
       items:

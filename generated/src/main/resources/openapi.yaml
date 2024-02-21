@@ -70,6 +70,7 @@ components:
   schemas:
     QuestDetails:
       example:
+        activeStatus: true
         orderThreshold: 1
         description: description
         id: 0
@@ -86,6 +87,8 @@ components:
           type: integer
         rewardAmount:
           type: integer
+        activeStatus:
+          type: boolean
       type: object
     ActiveQuestsList:
       items:

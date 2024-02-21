@@ -20,6 +20,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param hoursDration 
  * @param orderThreshold 
  * @param rewardAmount 
+ * @param activeStatus 
  */
 data class QuestDetails(
 
@@ -36,7 +37,10 @@ data class QuestDetails(
     @get:JsonProperty("orderThreshold") val orderThreshold: kotlin.Int? = null,
 
     @Schema(example = "null", description = "")
-    @get:JsonProperty("rewardAmount") val rewardAmount: kotlin.Int? = null
+    @get:JsonProperty("rewardAmount") val rewardAmount: kotlin.Int? = null,
+
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("activeStatus") val activeStatus: kotlin.Boolean? = null
 ) {
 
 }
