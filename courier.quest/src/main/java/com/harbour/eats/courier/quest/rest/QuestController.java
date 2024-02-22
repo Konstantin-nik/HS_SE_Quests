@@ -4,17 +4,18 @@ import static com.harbour.eats.courier.quest.constants.ErrorMessages.QUEST_DOES_
 
 import com.harbour.eats.courier.quest.entities.QuestDetails;
 import com.harbour.eats.courier.quest.service.quest.QuestService;
+import com.harbour.eats.courier.quest.service.quest.impl.QuestServiceImpl;
 import org.openapitools.api.QuestsApiController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 
 @Component
-@RestController
 public class QuestController extends QuestsApiController {
 
   @Autowired
+  @Qualifier(QuestServiceImpl.NAME)
   QuestService questService;
 
   public QuestController() {

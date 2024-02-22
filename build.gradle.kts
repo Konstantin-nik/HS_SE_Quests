@@ -10,11 +10,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-}
-
 openApiGenerate {
     generatorName.set("kotlin-spring")
     inputSpec.set("$projectDir/specs/openapi.yaml")
@@ -23,8 +18,4 @@ openApiGenerate {
     generateApiTests.set(false)
     generateModelTests.set(false)
     generateApiDocumentation.set(false)
-}
-
-tasks.test {
-    useJUnitPlatform()
 }

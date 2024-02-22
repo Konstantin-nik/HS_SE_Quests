@@ -1,7 +1,11 @@
+import org.gradle.internal.impldep.bsh.commands.dir
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.2.2"
 	id("io.spring.dependency-management") version "1.1.4"
+	jacoco
 }
 
 group = "com.harbour.eats"
@@ -34,4 +38,21 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.test {
+	useJUnitPlatform()
+	finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.withType<Test> {
+	finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+	dependsOn(tasks.test)
+//
+//	group = "reporting"
+//	description = "Generate Jacoco coverage reports after running tests."
+//	sourceDirectories = files("src/main/")
 }

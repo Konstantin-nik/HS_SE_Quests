@@ -11,9 +11,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Repository
-@Service
+@Service(QuestServiceImpl.NAME)
 public class QuestServiceImpl implements QuestService {
 
+  public static final String NAME = "QuestServiceImpl";
   @Autowired
   QuestDetailsRepository questDetailsRepository;
 
