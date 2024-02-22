@@ -1,23 +1,25 @@
 package com.harbour.eats.courier.quest.entities;
 
-import java.util.ArrayList;
-import java.util.Set;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@Entity
+@Table(name = "couriers")
+@ToString
 public class Courier {
 
+  @Id
+  @Column(name = "id", nullable = false)
   private Integer id;
-  private String name;
-  private Set<Integer> questIds;
 
-  public void addQuest(QuestDetailsVM questDetailsVM) {
-    ArrayList<Integer> ids = new ArrayList<>(questIds.stream().toList());
-    ids.add(questDetailsVM.getId());
-    questIds = Set.copyOf(ids);
-  }
+  @Column(name = "joined_quest_id", nullable = false)
+  private String joinedQuestID;
+
 }

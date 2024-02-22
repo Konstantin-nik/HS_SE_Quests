@@ -29,20 +29,12 @@ paths:
     get:
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActiveQuestsList'
           description: List of ongoing Quests retrieved successfully
       summary: Retrieve a list of ongoing Quests
   /quests/history:
     get:
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CompletedQuestsList'
           description: List of completed Quests retrieved successfully
       summary: Retrieve a history of completed Quests for a courier
   /quests/{questId}/details:
@@ -58,43 +50,9 @@ paths:
         style: simple
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QuestDetails'
           description: Quest details retrieved successfully
         "404":
           description: Quest not found
       summary: Retrieve details of a specific Quest
 components:
-  schemas:
-    QuestDetails:
-      example:
-        activeStatus: true
-        orderThreshold: 1
-        description: description
-        id: 0
-        hoursDration: 6
-        rewardAmount: 5
-      properties:
-        id:
-          type: integer
-        description:
-          type: string
-        hoursDration:
-          type: integer
-        orderThreshold:
-          type: integer
-        rewardAmount:
-          type: integer
-        activeStatus:
-          type: boolean
-      type: object
-    ActiveQuestsList:
-      items:
-        $ref: '#/components/schemas/QuestDetails'
-      type: array
-    CompletedQuestsList:
-      items:
-        $ref: '#/components/schemas/QuestDetails'
-      type: array
+  schemas: {}

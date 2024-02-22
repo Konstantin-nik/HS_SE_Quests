@@ -1,32 +1,15 @@
 package org.openapitools.api
 
-import org.openapitools.model.QuestDetails
-import io.swagger.v3.oas.annotations.*
-import io.swagger.v3.oas.annotations.enums.*
-import io.swagger.v3.oas.annotations.media.*
-import io.swagger.v3.oas.annotations.responses.*
-import io.swagger.v3.oas.annotations.security.*
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
+import io.swagger.v3.oas.annotations.responses.ApiResponse
 import org.springframework.http.HttpStatus
-import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
-
-import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.context.request.NativeWebRequest
-import org.springframework.beans.factory.annotation.Autowired
-
-import javax.validation.Valid
-import javax.validation.constraints.DecimalMax
-import javax.validation.constraints.DecimalMin
-import javax.validation.constraints.Email
-import javax.validation.constraints.Max
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotNull
-import javax.validation.constraints.Pattern
-import javax.validation.constraints.Size
-
-import kotlin.collections.List
-import kotlin.collections.Map
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Validated
@@ -38,14 +21,16 @@ class QuestsApiController() {
         operationId = "questsActiveGet",
         description = """""",
         responses = [
-            ApiResponse(responseCode = "200", description = "List of ongoing Quests retrieved successfully", content = [Content(array = ArraySchema(schema = Schema(implementation = QuestDetails::class)))]) ]
+            ApiResponse(
+                responseCode = "200",
+                description = "List of ongoing Quests retrieved successfully"
+            )]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/quests/active"],
-        produces = ["application/json"]
+        value = ["/quests/active"]
     )
-    fun questsActiveGet(): ResponseEntity<List<QuestDetails>> {
+    fun questsActiveGet(): ResponseEntity<kotlin.String> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -54,14 +39,16 @@ class QuestsApiController() {
         operationId = "questsHistoryGet",
         description = """""",
         responses = [
-            ApiResponse(responseCode = "200", description = "List of completed Quests retrieved successfully", content = [Content(array = ArraySchema(schema = Schema(implementation = QuestDetails::class)))]) ]
+            ApiResponse(
+                responseCode = "200",
+                description = "List of completed Quests retrieved successfully"
+            )]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/quests/history"],
-        produces = ["application/json"]
+        value = ["/quests/history"]
     )
-    fun questsHistoryGet(): ResponseEntity<List<QuestDetails>> {
+    fun questsHistoryGet(): ResponseEntity<kotlin.String> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -70,15 +57,19 @@ class QuestsApiController() {
         operationId = "questsQuestIdDetailsGet",
         description = """""",
         responses = [
-            ApiResponse(responseCode = "200", description = "Quest details retrieved successfully", content = [Content(schema = Schema(implementation = QuestDetails::class))]),
-            ApiResponse(responseCode = "404", description = "Quest not found") ]
+            ApiResponse(responseCode = "200", description = "Quest details retrieved successfully"),
+            ApiResponse(responseCode = "404", description = "Quest not found")]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/quests/{questId}/details"],
-        produces = ["application/json"]
+        value = ["/quests/{questId}/details"]
     )
-    fun questsQuestIdDetailsGet(@Parameter(description = "ID of the Quest to retrieve details for", required = true) @PathVariable("questId") questId: kotlin.String): ResponseEntity<QuestDetails> {
+    fun questsQuestIdDetailsGet(
+        @Parameter(
+            description = "ID of the Quest to retrieve details for",
+            required = true
+        ) @PathVariable("questId") questId: kotlin.Int
+    ): ResponseEntity<kotlin.String> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -89,13 +80,18 @@ class QuestsApiController() {
         responses = [
             ApiResponse(responseCode = "200", description = "Quest is joined successfully"),
             ApiResponse(responseCode = "404", description = "Quest not found"),
-            ApiResponse(responseCode = "500", description = "Quest not found") ]
+            ApiResponse(responseCode = "500", description = "Quest not found")]
     )
     @RequestMapping(
         method = [RequestMethod.POST],
         value = ["/quests/{questId}/join"]
     )
-    fun questsQuestIdJoinPost(@Parameter(description = "ID of the Quest to join", required = true) @PathVariable("questId") questId: kotlin.Int): ResponseEntity<Unit> {
+    fun questsQuestIdJoinPost(
+        @Parameter(
+            description = "ID of the Quest to join",
+            required = true
+        ) @PathVariable("questId") questId: kotlin.Int
+    ): ResponseEntity<kotlin.String> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }
