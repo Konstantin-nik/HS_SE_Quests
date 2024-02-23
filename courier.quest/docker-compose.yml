@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  main-db:
+    image: postgres:latest
+    container_name: main-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: couriersquests
+      POSTGRES_USER: kostya
+      POSTGRES_PASSWORD: 123321
+    ports:
+      - "5432:5432"
+    volumes:
+      - main-db-data:/var/lib/postgresql/data
+
+
+volumes:
+  main-db-data:
