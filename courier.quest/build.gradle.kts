@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
     implementation(project(":generated"))
+    implementation("org.springframework.boot:spring-boot-starter-security")
     runtimeOnly("org.postgresql:postgresql:42.7.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
